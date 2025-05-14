@@ -1,0 +1,2 @@
+# Jira integration requirements
+jira>=3.5.1

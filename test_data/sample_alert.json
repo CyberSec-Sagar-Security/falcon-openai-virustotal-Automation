@@ -1,0 +1,66 @@
+{
+    "id": "ldt:ec19b4d7-dcb9-42d1-86e6-41653f115dbb:54091012552",
+    "device_id": "1a2b3c4d5e6f7g8h",
+    "hostname": "WIN-PROD-SERVER01",
+    "created_time": "2025-05-14T10:15:30Z",
+    "severity": "critical",
+    "description": "Suspicious PowerShell Script Execution with Encoded Commands",
+    "technique": "T1059.001 - Command and Scripting Interpreter: PowerShell",
+    "indicators": [
+        {
+            "type": "process",
+            "value": "powershell.exe -enc ZQBjAGgAbwAgACIASABlAGwAbABvACIA"
+        },
+        {
+            "type": "file_write",
+            "value": "C:\\Windows\\Temp\\suspicious_script.ps1"
+        },
+        {
+            "type": "hash",
+            "value": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+            "type": "ip",
+            "value": "185.147.53.44"
+        }
+    ],
+    "additional_details": {
+        "parent_process": "cmd.exe",
+        "command_line": "powershell.exe -NoProfile -NonInteractive -EncodedCommand ZQBjAGgAbwAgACIASABlAGwAbABvACIA",
+        "user": "SYSTEM",
+        "process_tree": [
+            {
+                "name": "services.exe",
+                "pid": 672,
+                "command_line": ""
+            },
+            {
+                "name": "cmd.exe",
+                "pid": 4568,
+                "command_line": "cmd.exe /c start"
+            },
+            {
+                "name": "powershell.exe",
+                "pid": 4892,
+                "command_line": "powershell.exe -enc ZQBjAGgAbwA..."
+            }
+        ],
+        "network_connections": [
+            {
+                "local_ip": "10.0.0.5",
+                "local_port": 49123,
+                "remote_ip": "185.147.53.44",
+                "remote_port": 445,
+                "protocol": "TCP"
+            }
+        ]
+    },
+    "mitre_tactics": [
+        "execution",
+        "defense-evasion"
+    ],
+    "asset_criticality": "high",
+    "related_alerts": [
+        "ldt:ab12cd34-5678-90ef-ghij-klmnopqrstuv"
+    ]
+}

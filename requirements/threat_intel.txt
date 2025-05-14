@@ -1,0 +1,4 @@
+# Threat Intelligence module requirements
+virustotal-api>=2.0.0
+alienvault-otx-api>=1.0.0
+mitre-attack-api>=1.0.0

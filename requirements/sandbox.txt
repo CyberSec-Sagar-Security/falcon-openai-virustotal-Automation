@@ -1,0 +1,3 @@
+# Sandbox analysis module requirements
+anyrun-api>=1.0.0
+hybrid-analysis-api>=2.0.0

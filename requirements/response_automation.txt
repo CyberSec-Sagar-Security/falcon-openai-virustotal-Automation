@@ -1,0 +1,3 @@
+# Response automation requirements
+boto3>=1.26.0
+pydantic>=2.3.0
